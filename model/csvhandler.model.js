@@ -1,17 +1,14 @@
-let mongoose = require("mongoose");
+const mongoose = require("mongoose");
 
-let csvHandlerSchema = new mongoose.Schema({
-  Year: {
-    type: String,
+let csvHandlerSchema = new mongoose.Schema(
+  {
+    data: {
+      type: mongoose.Schema.Types.Mixed, 
+    },
   },
-  email: {
-    type: String,
-  },
-  gender: {
-    type: String,
-  },
-});
+  { strict: false } 
+);
 
-let csvfileData = mongoose.model("csvHandlerSchema", csvHandlerSchema);
+let csvfileData = mongoose.model("CsvFileData", csvHandlerSchema);
 
 module.exports = csvfileData;
